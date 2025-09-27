@@ -2,26 +2,24 @@ using UnityEngine;
 
 public class ShootingSystem : MonoBehaviour
 {
-    [Header("Projectile Settings")]
+    [Header("DEVE APARECER ESTES CAMPOS")]
     public GameObject projectilePrefab;
     public Transform firePoint;
-    public float minPower = 5f;
-    public float maxPower = 20f;
-    public float powerChargeSpeed = 15f;
-    
-    [Header("UI")]
     public RectTransform powerBarFill;
     public GameObject powerBarUI;
+    
+    [Header("Power Settings")]
+    public float minPower = 2f;        // Reduzido de 5 para 2
+    public float maxPower = 8f;        // Reduzido de 20 para 8  
+    public float powerChargeSpeed = 5f; // Reduzido de 15 para 5 (mais lento)
     
     private float currentPower = 0f;
     private bool isCharging = false;
     private bool canShoot = true;
-
+    
     void Start()
     {
-        // Esconder a barra de força no início
-        if (powerBarUI != null)
-            powerBarUI.SetActive(false);
+        Debug.Log("✅ ShootingSystem iniciado!");
     }
 
     void Update()
@@ -53,6 +51,7 @@ public class ShootingSystem : MonoBehaviour
 
     void StartCharging()
     {
+        Debug.Log("🔋 Começou a carregar - força inicial: " + minPower);
         isCharging = true;
         currentPower = minPower;
         
@@ -63,51 +62,63 @@ public class ShootingSystem : MonoBehaviour
 
     void ChargePower()
     {
-        // Aumentar a força gradualmente
+        // Aumentar força mais lentamente
+        float oldPower = currentPower;
         currentPower += powerChargeSpeed * Time.deltaTime;
         currentPower = Mathf.Clamp(currentPower, minPower, maxPower);
+        
+        // Debug a cada meio segundo para não spammar
+        if (Time.time % 0.5f < 0.1f && oldPower != currentPower)
+        {
+            Debug.Log("⚡ Carregando força: " + currentPower.ToString("F1"));
+        }
     }
 
     void Shoot()
     {
-        if (projectilePrefab != null && firePoint != null)
+        Debug.Log("🎯 DISPARANDO com força: " + currentPower.ToString("F1"));
+        
+        if (projectilePrefab == null || firePoint == null)
         {
-            // Criar o projétil na posição do FirePoint
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-            
-            // Pegar o Rigidbody2D do projétil
-            Rigidbody2D projRig = projectile.GetComponent<Rigidbody2D>();
-            
-            if (projRig != null)
-            {
-                // Calcular direção do tiro (baseado na rotação do FirePoint)
-                Vector2 shootDirection = firePoint.right;
-                
-                // Aplicar força no projétil
-                projRig.AddForce(shootDirection * currentPower, ForceMode2D.Impulse);
-            }
-
-            // Configurar quem atirou (para não colidir consigo mesmo)
-            Projectile projScript = projectile.GetComponent<Projectile>();
-            if (projScript != null)
-            {
-                projScript.owner = this.gameObject;
-            }
+            Debug.LogError("❌ Faltam componentes para atirar!");
+            StopCharging();
+            return;
         }
 
-        // Reset do sistema
-        StopCharging();
+        // Criar projétil
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         
-        // Cooldown para não atirar muito rápido
+        // Aplicar física
+        Rigidbody2D projRig = projectile.GetComponent<Rigidbody2D>();
+        if (projRig != null)
+        {
+            // Direção baseada na mira
+            Vector2 shootDirection = firePoint.right;
+            
+            // Aplicar força mais suave
+            projRig.AddForce(shootDirection * currentPower, ForceMode2D.Impulse);
+            
+            // Ajustar massa do projétil para voo mais controlado
+            projRig.mass = 0.3f; // Mais pesado = voo mais curto
+            projRig.linearDamping = 0.1f; // Resistência do ar
+        }
+
+        // Configurar dono
+        ProjectileScript projScript = projectile.GetComponent<ProjectileScript>();
+        if (projScript != null)
+        {
+            projScript.owner = this.gameObject;
+        }
+
+        StopCharging();
         StartCoroutine(ShootCooldown());
     }
-    
+
     void StopCharging()
     {
         isCharging = false;
         currentPower = 0f;
         
-        // Esconder barra de força
         if (powerBarUI != null)
             powerBarUI.SetActive(false);
     }
@@ -115,19 +126,29 @@ public class ShootingSystem : MonoBehaviour
     System.Collections.IEnumerator ShootCooldown()
     {
         canShoot = false;
-        yield return new WaitForSeconds(0.5f); // Meio segundo de cooldown
+        yield return new WaitForSeconds(0.8f); // Cooldown maior
         canShoot = true;
+        Debug.Log("✅ Pode atirar novamente");
     }
 
     void UpdatePowerBar()
     {
         if (powerBarFill != null && isCharging)
         {
-            // Calcular porcentagem da força (0 a 1)
+            // Cálculo mais suave da barra
             float fillAmount = (currentPower - minPower) / (maxPower - minPower);
-            
-            // Atualizar escala da barra
             powerBarFill.localScale = new Vector3(fillAmount, 1, 1);
+            
+            // Mudança de cor baseada na força
+            UnityEngine.UI.Image barImage = powerBarFill.GetComponent<UnityEngine.UI.Image>();
+            if (barImage != null)
+            {
+                // Verde no início, amarelo no meio, vermelho no máximo
+                if (fillAmount < 0.5f)
+                    barImage.color = Color.Lerp(Color.green, Color.yellow, fillAmount * 2f);
+                else
+                    barImage.color = Color.Lerp(Color.yellow, Color.red, (fillAmount - 0.5f) * 2f);
+            }
         }
     }
 }
