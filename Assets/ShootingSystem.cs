@@ -9,9 +9,9 @@ public class ShootingSystem : MonoBehaviour
     public GameObject powerBarUI;
     
     [Header("Power Settings")]
-    public float minPower = 2f;        // Reduzido de 5 para 2
-    public float maxPower = 8f;        // Reduzido de 20 para 8  
-    public float powerChargeSpeed = 5f; // Reduzido de 15 para 5 (mais lento)
+    public float minPower = 1f;        
+    public float maxPower = 5f;        
+    public float powerChargeSpeed = 2f; 
     
     private float currentPower = 0f;
     private bool isCharging = false;

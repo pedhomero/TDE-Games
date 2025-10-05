@@ -2,84 +2,133 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [Header("Projectile Settings")]
+    [Header("Settings")]
     public float damage = 20f;
-    public float lifeTime = 5f;
+    public float lifeTime = 8f;
     public GameObject owner;
     
-    private bool hasExploded = false;
+    private bool exploded = false;
 
     void Start()
     {
-        // Destruir o projétil após um tempo para não acumular na cena
+        Debug.Log("🚀 Projétil criado!");
         Destroy(gameObject, lifeTime);
+        SetupVisuals();
         
-        // Adicionar rastro visual (opcional)
-        AddTrailEffect();
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Não colidir com o próprio jogador que atirou
-        if (collision.gameObject == owner)
-            return;
-
-        // Explodir quando tocar em qualquer coisa
-        Explode();
-    }
-
-    void Explode()
-    {
-        if (hasExploded) return;
-        
-        hasExploded = true;
-        
-        // Criar efeito visual simples
-        CreateExplosionEffect();
-        
-        // Por enquanto só destrói o projétil
-        // Depois vamos adicionar dano e força de explosão
-        Destroy(gameObject);
-    }
-
-    void CreateExplosionEffect()
-    {
-        // Efeito visual simples: criar algumas partículas coloridas
-        for (int i = 0; i < 8; i++)
+        // Ignorar colisão com o dono
+        if (owner != null)
         {
-            GameObject particle = new GameObject("ExplosionParticle");
-            particle.transform.position = transform.position;
+            Collider2D ownerCollider = owner.GetComponent<Collider2D>();
+            Collider2D myCollider = GetComponent<Collider2D>();
             
-            // Adicionar visual
-            SpriteRenderer sr = particle.AddComponent<SpriteRenderer>();
-            sr.sprite = GetComponent<SpriteRenderer>().sprite; // Usar o mesmo sprite do projétil
-            sr.color = Random.ColorHSV(0f, 1f, 0.8f, 1f, 0.8f, 1f); // Cores aleatórias
-            particle.transform.localScale = Vector3.one * 0.1f;
-            
-            // Adicionar física
-            Rigidbody2D particleRig = particle.AddComponent<Rigidbody2D>();
-            particleRig.gravityScale = 0.5f;
-            
-            // Direção aleatória
-            Vector2 randomDirection = Random.insideUnitCircle.normalized;
-            particleRig.AddForce(randomDirection * Random.Range(100f, 300f));
-            
-            // Destruir a partícula
-            Destroy(particle, 1f);
+            if (ownerCollider != null && myCollider != null)
+            {
+                Physics2D.IgnoreCollision(myCollider, ownerCollider);
+            }
         }
     }
-    
-    void AddTrailEffect()
-    {
-        // Adicionar rastro atrás do projétil
-        TrailRenderer trail = gameObject.AddComponent<TrailRenderer>();
-        trail.time = 0.3f;
-        trail.startWidth = 0.05f;
-        trail.endWidth = 0.01f;
-        trail.material = new Material(Shader.Find("Sprites/Default"));
 
-        // Definir cores do rastro
-        trail.startColor = Color.yellow;
-        trail.endColor = new Color(1f, 1f, 0f, 0f); // amarelo que vai desaparecendo
+    void SetupVisuals()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.color = Color.yellow;
+            sr.sortingOrder = 5;
+        }
+        transform.localScale = new Vector3(0.3f, 0.3f, 1f);
+    }
+
+    void OnCollisionEnter2D(Collision2D hit)
+    {
+        Debug.Log("💥 Colidiu com: " + hit.gameObject.name);
+        
+        if (hit.gameObject == owner) return;
+        
+        // Parar movimento
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+        
+        ExplodeNow();
+    }
+
+    void ExplodeNow()
+    {
+        if (exploded) return;
+        exploded = true;
+        
+        Debug.Log("💥 EXPLOSÃO!");
+        
+        FindAndDamageEnemies();
+        MakeExplosionEffect();
+        
+        Destroy(gameObject, 0.2f);
+    }
+
+    void FindAndDamageEnemies()
+    {
+        float radius = 3f;
+        Debug.Log("🔍 Buscando alvos em " + radius + "m de raio");
+        
+        Collider2D[] nearby = Physics2D.OverlapCircleAll(transform.position, radius);
+        Debug.Log("🔍 Encontrados: " + nearby.Length + " objetos");
+        
+        foreach (Collider2D target in nearby)
+        {
+            if (target.gameObject == owner) continue;
+            
+            Debug.Log("🎯 Verificando: " + target.gameObject.name);
+            
+            HealthSystem health = target.GetComponent<HealthSystem>();
+            if (health != null)
+            {
+                Debug.Log("✅ ENCONTROU HealthSystem!");
+                
+                float dist = Vector2.Distance(transform.position, target.transform.position);
+                float damagePercent = 1f - (dist / radius);
+                float finalDamage = damage * Mathf.Clamp01(damagePercent);
+                
+                Debug.Log("⚡ Dano calculado: " + finalDamage.ToString("F1"));
+                
+                if (finalDamage > 0)
+                {
+                    health.TakeDamage(finalDamage);
+                    Debug.Log("✅ DANO APLICADO!");
+                }
+            }
+            else
+            {
+                Debug.Log("❌ Sem HealthSystem em " + target.name);
+            }
+            
+            Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Vector2 dir = (target.transform.position - transform.position).normalized;
+                rb.AddForce(dir * 200f);
+            }
+        }
+    }
+
+    void MakeExplosionEffect()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            GameObject spark = new GameObject("Spark");
+            spark.transform.position = transform.position;
+            
+            SpriteRenderer sr = spark.AddComponent<SpriteRenderer>();
+            sr.sprite = GetComponent<SpriteRenderer>()?.sprite;
+            sr.color = Random.ColorHSV();
+            spark.transform.localScale = Vector3.one * 0.1f;
+            
+            Rigidbody2D rb = spark.AddComponent<Rigidbody2D>();
+            rb.AddForce(Random.insideUnitCircle * 300f);
+            
+            Destroy(spark, 1f);
+        }
     }
 }
