@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4913702548836849659}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.17911, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -0.9990012, z: 0, w: 0.044683}
+  m_LocalPosition: {x: -3.363, y: 0.911, z: -0.074}
+  m_LocalScale: {x: 0.047662053, y: 0.053968854, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -174.878, z: 0}
 --- !u!212 &5625273519212253056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -2413806693520163455, guid: 2e4b4c8317872d74ea039d68fe6fc392, type: 3}
+  m_Sprite: {fileID: 6643524065866771679, guid: 9558b233965e65d438a4ca4c1f80a42c, type: 3}
   m_Color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -144,6 +144,8 @@ MonoBehaviour:
   damage: 20
   lifeTime: 5
   owner: {fileID: 0}
+  "Explos\xE3o_Prefab": {fileID: 5514573035432368709, guid: 24cd2bdda80cf724d8885bc0ed171b84, type: 3}
+  explosionSound: {fileID: 8300000, guid: d65ecde40670e4149af56af98c44aa93, type: 3}
 --- !u!50 &2384176221592713109
 Rigidbody2D:
   serializedVersion: 5

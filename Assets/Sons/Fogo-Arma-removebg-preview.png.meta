@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: edd96cf4981eedb41bc48e659457fd34
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3048521645007750771
+    second: Fogo-Arma-removebg-preview_0
+  - first:
+      213: 6227684072443348451
+    second: Fogo-Arma-removebg-preview_1
+  - first:
+      213: 322309723837300906
+    second: Fogo-Arma-removebg-preview_2
+  - first:
+      213: -3070374120070531860
+    second: Fogo-Arma-removebg-preview_3
+  - first:
+      213: 3931642902946910688
+    second: Fogo-Arma-removebg-preview_4
+  - first:
+      213: -1279473689506959338
+    second: Fogo-Arma-removebg-preview_5
+  - first:
+      213: 4097963833252811407
+    second: Fogo-Arma-removebg-preview_6
+  - first:
+      213: 8311606611914184594
+    second: Fogo-Arma-removebg-preview_7
+  - first:
+      213: 3412155071320277271
+    second: Fogo-Arma-removebg-preview_8
+  - first:
+      213: -8370100951674122147
+    second: Fogo-Arma-removebg-preview_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 122
+        width: 121
+        height: 67
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376c6ccc8468e4a20800000000000000
+      internalID: 3048521645007750771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 118
+        width: 136
+        height: 75
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5085f0bad2d6650800000000000000
+      internalID: 6227684072443348451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 111
+        width: 95
+        height: 84
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa00af47cf2197400800000000000000
+      internalID: 322309723837300906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 122
+        width: 37
+        height: 61
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce4b4ad5107d365d0800000000000000
+      internalID: -3070374120070531860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 152
+        width: 37
+        height: 30
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e116d5b360009630800000000000000
+      internalID: 3931642902946910688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 146
+        width: 49
+        height: 41
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 610ba7555756e3ee0800000000000000
+      internalID: -1279473689506959338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 176
+        width: 20
+        height: 21
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f829e67f464eed830800000000000000
+      internalID: 4097963833252811407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 127
+        width: 26
+        height: 51
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 297deef3d22c85370800000000000000
+      internalID: 8311606611914184594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 120
+        width: 38
+        height: 29
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 711c79085f86a5f20800000000000000
+      internalID: 3412155071320277271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fogo-Arma-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 102
+        width: 34
+        height: 44
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d501e49f78d67db80800000000000000
+      internalID: -8370100951674122147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a7d394031b03e9149be186aa71dc0d71
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fogo-Arma-removebg-preview_0: 3048521645007750771
+      Fogo-Arma-removebg-preview_1: 6227684072443348451
+      Fogo-Arma-removebg-preview_2: 322309723837300906
+      Fogo-Arma-removebg-preview_3: -3070374120070531860
+      Fogo-Arma-removebg-preview_4: 3931642902946910688
+      Fogo-Arma-removebg-preview_5: -1279473689506959338
+      Fogo-Arma-removebg-preview_6: 4097963833252811407
+      Fogo-Arma-removebg-preview_7: 8311606611914184594
+      Fogo-Arma-removebg-preview_8: 3412155071320277271
+      Fogo-Arma-removebg-preview_9: -8370100951674122147
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

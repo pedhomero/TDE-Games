@@ -6,6 +6,12 @@ public class ProjectileScript : MonoBehaviour
     public float damage = 20f;
     public float lifeTime = 8f;
     public GameObject owner;
+
+    [Header("Explosão")]
+    public GameObject Explosão_Prefab;
+    public AudioClip explosionSound;
+
+
     
     private bool hasExploded = false;
 
@@ -57,16 +63,28 @@ public class ProjectileScript : MonoBehaviour
     void Explode()
     {
         if (hasExploded) return;
-        
+
         hasExploded = true;
+        
+         Debug.Log("💥 EXPLOSÃO!");
+        // Toca o som da explosão
+        if (explosionSound != null)
+        {
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position, 1f);
+        }
+        
+        if (Explosão_Prefab != null)
+        {
+            GameObject explosion = Instantiate(Explosão_Prefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 0.5f);
+        }
         
         Debug.Log("💥 EXPLOSÃO na posição: " + transform.position);
         
         // Causar dano em área
         CauseDamageInArea();
         
-        // Criar efeito visual
-        CreateExplosionEffect();
+
         
         // Destruir projétil
         Destroy(gameObject, 0.1f);
