@@ -667,7 +667,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 2e4b4c8317872d74ea039d68fe6fc392, type: 3}
+  m_Sprite: {fileID: -4337733348007661854, guid: a09dc303ef31dbe4c93e3ab7c9bbac2e, type: 3}
   m_Color: {r: 1, g: 0.5490196, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -687,7 +687,7 @@ Transform:
   m_GameObject: {fileID: 667594692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.28, y: -2.81, z: 0}
+  m_LocalPosition: {x: -3.72, y: -2.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -795,6 +795,7 @@ MonoBehaviour:
   firePoint: {fileID: 1174738679}
   powerBarFill: {fileID: 1313245051}
   powerBarUI: {fileID: 672544073}
+  MuzzleFlash_Prefab: {fileID: 1349067436802947212, guid: 154a4117dd493fd46ad68d4f23cb0a22, type: 3}
   minPower: 5
   maxPower: 20
   powerChargeSpeed: 15

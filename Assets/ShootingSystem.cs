@@ -7,6 +7,9 @@ public class ShootingSystem : MonoBehaviour
     public Transform firePoint;
     public RectTransform powerBarFill;
     public GameObject powerBarUI;
+
+    [Header("Efeito de Disparo")]
+    public GameObject MuzzleFlash_Prefab; // Prefab da explosão de fogo ao atirar
     
     [Header("Power Settings")]
     public float minPower = 1f;        
@@ -94,14 +97,21 @@ public class ShootingSystem : MonoBehaviour
         {
             // Direção baseada na mira
             Vector2 shootDirection = firePoint.right;
-            
+
             // Aplicar força mais suave
             projRig.AddForce(shootDirection * currentPower, ForceMode2D.Impulse);
-            
+
             // Ajustar massa do projétil para voo mais controlado
             projRig.mass = 0.3f; // Mais pesado = voo mais curto
             projRig.linearDamping = 0.1f; // Resistência do ar
         }
+
+        if(MuzzleFlash_Prefab!= null && firePoint != null)
+        {
+            GameObject flash = Instantiate(MuzzleFlash_Prefab, firePoint.position, firePoint.rotation);
+            Destroy(flash, 0.3f);
+        }
+    
 
         // Configurar dono
         ProjectileScript projScript = projectile.GetComponent<ProjectileScript>();

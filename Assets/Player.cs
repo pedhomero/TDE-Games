@@ -17,12 +17,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private float direction;
     private float aimAngle = 0f;
     private bool facingRight = true;
+    Animator anim;
+
     
     void Start()
     {
         // Pega automaticamente o Rigidbody2D se não foi configurado
         if (rig == null)
             rig = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -38,9 +42,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
         
         // NOVO: Sistema de mira
         HandleAiming();
-        
+
         // NOVO: Virar o personagem
         HandleFlipping();
+        
+        bool isWalking = Mathf.Abs(direction) > 0.1f;
+        anim.SetBool("isWalking", isWalking);
     }
     
     void FixedUpdate()
