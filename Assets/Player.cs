@@ -2,115 +2,116 @@ using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("⚙️ Player Info")]
+    public int playerNumber = 1;
+
+    [Header("🏃 Movimento")]
     public float speed = 5f;
     public float jumpForce = 10f;
     public Rigidbody2D rig;
-    
-    [Header("Aiming")]
+
+    [Header("🎯 Mira")]
     public Transform cannon;
     public Transform aimPoint;
     public float minAngle = -45f;
     public float maxAngle = 45f;
     public float aimSpeed = 50f;
-    
+
+    public bool facingRight = true;
     private float direction;
     private float aimAngle = 0f;
-    private bool facingRight = true;
-    Animator anim;
+    private Animator anim;
 
-    
     void Start()
     {
-        // Pega automaticamente o Rigidbody2D se não foi configurado
         if (rig == null)
             rig = GetComponent<Rigidbody2D>();
+
         anim = GetComponent<Animator>();
 
+        // Detecta orientação inicial com base na escala
+        facingRight = transform.localScale.x >= 0f;
+        FixScale();
     }
 
     void Update()
     {
-        // Movimento horizontal
-        direction = Input.GetAxis("Horizontal");
-
-        // Pulo
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (!TurnManager.instance.IsMyTurn(playerNumber))
         {
-            rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (anim != null)
+                anim.SetBool("isWalking", false);
+            return;
         }
-        
-        // NOVO: Sistema de mira
-        HandleAiming();
 
-        // NOVO: Virar o personagem
-        HandleFlipping();
-        
-        bool isWalking = Mathf.Abs(direction) > 0.1f;
-        anim.SetBool("isWalking", isWalking);
+        HandleMovement();
+        HandleAiming();
+        HandleFlip();
     }
-    
-    void FixedUpdate()
+
+    void HandleMovement()
     {
-        rig.linearVelocity = new Vector2(direction * speed, rig.linearVelocity.y);
+        direction = Input.GetAxisRaw("Horizontal");
+
+        if (Mathf.Abs(direction) > 0.1f)
+        {
+            if (TurnManager.instance.TryUseStep())
+                rig.linearVelocity = new Vector2(direction * speed, rig.linearVelocity.y);
+        }
+        else
+        {
+            rig.linearVelocity = new Vector2(0, rig.linearVelocity.y);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+        if (anim != null)
+            anim.SetBool("isWalking", Mathf.Abs(direction) > 0.1f);
     }
-    
-    // NOVO: Função para controlar a mira
+
     void HandleAiming()
     {
-        // Mira com as setas do teclado
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            aimAngle += aimSpeed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            aimAngle -= aimSpeed * Time.deltaTime;
-        }
+        float aimInput = 0f;
+        if (Input.GetKey(KeyCode.UpArrow)) aimInput = 1f;
+        else if (Input.GetKey(KeyCode.DownArrow)) aimInput = -1f;
 
-        // Limitar o ângulo entre min e max
+        aimAngle += aimInput * aimSpeed * Time.deltaTime;
         aimAngle = Mathf.Clamp(aimAngle, minAngle, maxAngle);
 
-        // Aplicar rotação no canhão
         if (cannon != null)
         {
-            float finalAngle = facingRight ? aimAngle : 180f - aimAngle;
-            cannon.rotation = Quaternion.Euler(0, 0, finalAngle);
+            float finalAngle = facingRight ? aimAngle : -aimAngle;
+            cannon.localRotation = Quaternion.Euler(0, 0, finalAngle);
         }
 
-        // Atualizar posição do ponto de mira
-        if (aimPoint != null)
+        if (aimPoint != null && cannon != null)
         {
-            float angleRad = aimAngle * Mathf.Deg2Rad;
-            Vector3 aimDirection;
-            
-            if (facingRight)
-                aimDirection = new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad), 0);
-            else
-                aimDirection = new Vector3(-Mathf.Cos(angleRad), Mathf.Sin(angleRad), 0);
-            
-            aimPoint.position = cannon.position + aimDirection * 2f;
+            Vector3 dir = facingRight
+                ? Quaternion.Euler(0, 0, aimAngle) * Vector3.right
+                : Quaternion.Euler(0, 0, -aimAngle) * Vector3.left;
+
+            aimPoint.position = cannon.position + dir.normalized * 2f;
         }
     }
-    
-    // NOVO: Função para virar o personagem
-    void HandleFlipping()
+
+    void HandleFlip()
     {
-        if (direction > 0 && !facingRight)
-        {
+        if (direction > 0.1f && !facingRight)
             Flip();
-        }
-        else if (direction < 0 && facingRight)
-        {
+        else if (direction < -0.1f && facingRight)
             Flip();
-        }
     }
-    
+
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        FixScale();
+    }
+
+    void FixScale()
+    {
+        Vector3 s = transform.localScale;
+        s.x = Mathf.Abs(s.x) * (facingRight ? 1f : -1f);
+        transform.localScale = s;
     }
 }

@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: c4231fdeed17e8749923cf7f11ea1b4d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5661515999122449588
+    second: "Anima\xE7\xE3oPlayer2 - Andar_0"
+  - first:
+      213: 981591629098550601
+    second: "Anima\xE7\xE3oPlayer2 - Andar_1"
+  - first:
+      213: -6258431267860792297
+    second: "Anima\xE7\xE3oPlayer2 - Andar_2"
+  - first:
+      213: 2910516701393918198
+    second: "Anima\xE7\xE3oPlayer2 - Andar_3"
+  - first:
+      213: 4384770178861065166
+    second: "Anima\xE7\xE3oPlayer2 - Andar_4"
+  - first:
+      213: -4727550106963401605
+    second: "Anima\xE7\xE3oPlayer2 - Andar_5"
+  - first:
+      213: -5963191052437949930
+    second: "Anima\xE7\xE3oPlayer2 - Andar_6"
+  - first:
+      213: 3086825725262601103
+    second: "Anima\xE7\xE3oPlayer2 - Andar_7"
+  - first:
+      213: 143364865780866927
+    second: "Anima\xE7\xE3oPlayer2 - Andar_8"
+  - first:
+      213: -3026253763112568091
+    second: "Anima\xE7\xE3oPlayer2 - Andar_9"
+  - first:
+      213: -747486962097733187
+    second: "Anima\xE7\xE3oPlayer2 - Andar_10"
+  - first:
+      213: -604115814650183459
+    second: "Anima\xE7\xE3oPlayer2 - Andar_11"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_0"
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 277
+        width: 209
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b462e12eceb19e40800000000000000
+      internalID: 5661515999122449588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_1"
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 281
+        width: 223
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9458aeec2605f9d00800000000000000
+      internalID: 981591629098550601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_2"
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 283
+        width: 226
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71cb5f3abe59529a0800000000000000
+      internalID: -6258431267860792297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_3"
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 280
+        width: 209
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f81d63f48b346820800000000000000
+      internalID: 2910516701393918198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_4"
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 281
+        width: 214
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec36db40f35d9dc30800000000000000
+      internalID: 4384770178861065166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_5"
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 283
+        width: 223
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b742690b93e546eb0800000000000000
+      internalID: -4727550106963401605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_6"
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 3
+        width: 225
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 612f5a7055d7e3da0800000000000000
+      internalID: -5963191052437949930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_7"
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 0
+        width: 213
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b90d574ab96da20800000000000000
+      internalID: 3086825725262601103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_8"
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 0
+        width: 221
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6fd32af5955df100800000000000000
+      internalID: 143364865780866927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_9"
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 0
+        width: 225
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ea7c797c369006d0800000000000000
+      internalID: -3026253763112568091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_10"
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 0
+        width: 211
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db1cded719460a5f0800000000000000
+      internalID: -747486962097733187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7\xE3oPlayer2 - Andar_11"
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 0
+        width: 223
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd084980edfbd97f0800000000000000
+      internalID: -604115814650183459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "Anima\xE7\xE3oPlayer2 - Andar_0": 5661515999122449588
+      "Anima\xE7\xE3oPlayer2 - Andar_1": 981591629098550601
+      "Anima\xE7\xE3oPlayer2 - Andar_10": -747486962097733187
+      "Anima\xE7\xE3oPlayer2 - Andar_11": -604115814650183459
+      "Anima\xE7\xE3oPlayer2 - Andar_2": -6258431267860792297
+      "Anima\xE7\xE3oPlayer2 - Andar_3": 2910516701393918198
+      "Anima\xE7\xE3oPlayer2 - Andar_4": 4384770178861065166
+      "Anima\xE7\xE3oPlayer2 - Andar_5": -4727550106963401605
+      "Anima\xE7\xE3oPlayer2 - Andar_6": -5963191052437949930
+      "Anima\xE7\xE3oPlayer2 - Andar_7": 3086825725262601103
+      "Anima\xE7\xE3oPlayer2 - Andar_8": 143364865780866927
+      "Anima\xE7\xE3oPlayer2 - Andar_9": -3026253763112568091
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

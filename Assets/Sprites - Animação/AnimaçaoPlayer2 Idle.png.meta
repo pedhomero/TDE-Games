@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 6d5b66913f2283948a9b6198a6df0687
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 696259480853358477
+    second: "Anima\xE7aoPlayer2 Idle_0"
+  - first:
+      213: 4694306240730694994
+    second: "Anima\xE7aoPlayer2 Idle_1"
+  - first:
+      213: -2338953718078898664
+    second: "Anima\xE7aoPlayer2 Idle_2"
+  - first:
+      213: -1761812265888393794
+    second: "Anima\xE7aoPlayer2 Idle_3"
+  - first:
+      213: -1147484578938515603
+    second: "Anima\xE7aoPlayer2 Idle_4"
+  - first:
+      213: 6686697810185046021
+    second: "Anima\xE7aoPlayer2 Idle_5"
+  - first:
+      213: 4029645012861836416
+    second: "Anima\xE7aoPlayer2 Idle_6"
+  - first:
+      213: -371583765066882348
+    second: "Anima\xE7aoPlayer2 Idle_7"
+  - first:
+      213: 6263117953435157527
+    second: "Anima\xE7aoPlayer2 Idle_8"
+  - first:
+      213: 6242555047587750484
+    second: "Anima\xE7aoPlayer2 Idle_9"
+  - first:
+      213: -5353059105808851658
+    second: "Anima\xE7aoPlayer2 Idle_10"
+  - first:
+      213: 5656420097730617715
+    second: "Anima\xE7aoPlayer2 Idle_11"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_0"
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 282
+        width: 249
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8723c31f4c99a900800000000000000
+      internalID: 696259480853358477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_1"
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 282
+        width: 251
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25507a987a6852140800000000000000
+      internalID: 4694306240730694994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_2"
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 282
+        width: 251
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ef3d75cfd5a8fd0800000000000000
+      internalID: -2338953718078898664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_3"
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 282
+        width: 251
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb5dbc22419cc87e0800000000000000
+      internalID: -1761812265888393794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_4"
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 282
+        width: 251
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6f8127ead05310f0800000000000000
+      internalID: -1147484578938515603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_5"
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 282
+        width: 251
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50846701b3cebcc50800000000000000
+      internalID: 6686697810185046021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_6"
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 0
+        width: 251
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08cdd8a0acc2ce730800000000000000
+      internalID: 4029645012861836416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_7"
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 0
+        width: 251
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d2e2eec88ed7daf0800000000000000
+      internalID: -371583765066882348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_8"
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 0
+        width: 250
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714cfd068901be650800000000000000
+      internalID: 6263117953435157527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_9"
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 0
+        width: 250
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4522a46cdb202a650800000000000000
+      internalID: 6242555047587750484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_10"
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 0
+        width: 250
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63dd790ea1d16b5b0800000000000000
+      internalID: -5353059105808851658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Anima\xE7aoPlayer2 Idle_11"
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 0
+        width: 249
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3712d912c14af7e40800000000000000
+      internalID: 5656420097730617715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "Anima\xE7aoPlayer2 Idle_0": 696259480853358477
+      "Anima\xE7aoPlayer2 Idle_1": 4694306240730694994
+      "Anima\xE7aoPlayer2 Idle_10": -5353059105808851658
+      "Anima\xE7aoPlayer2 Idle_11": 5656420097730617715
+      "Anima\xE7aoPlayer2 Idle_2": -2338953718078898664
+      "Anima\xE7aoPlayer2 Idle_3": -1761812265888393794
+      "Anima\xE7aoPlayer2 Idle_4": -1147484578938515603
+      "Anima\xE7aoPlayer2 Idle_5": 6686697810185046021
+      "Anima\xE7aoPlayer2 Idle_6": 4029645012861836416
+      "Anima\xE7aoPlayer2 Idle_7": -371583765066882348
+      "Anima\xE7aoPlayer2 Idle_8": 6263117953435157527
+      "Anima\xE7aoPlayer2 Idle_9": 6242555047587750484
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
