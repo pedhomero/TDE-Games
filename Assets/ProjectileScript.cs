@@ -70,7 +70,7 @@ public class ProjectileScript : MonoBehaviour
         // Toca o som da explosão
         if (explosionSound != null)
         {
-            AudioSource.PlayClipAtPoint(explosionSound, transform.position, 1f);
+            AudioSource.PlayClipAtPoint(explosionSound, Camera.main.transform.position, 1f);
         }
         
         if (Explosão_Prefab != null)

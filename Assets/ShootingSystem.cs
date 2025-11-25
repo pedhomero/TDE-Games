@@ -4,11 +4,12 @@ public class ShootingSystem : MonoBehaviour
 {
     [Header("DEVE APARECER ESTES CAMPOS")]
     public GameObject projectilePrefab;
-    public Transform firePoint;
+    public Transform firePoint; // Mantemos a referência, mas não usaremos o .position
     public RectTransform powerBarFill;
     public GameObject powerBarUI;
 
-    [Header("Efeito de Disparo")]
+    [Header("Muzzle Settings")]
+    public float muzzleOffset = 1.0f; // <--- NOVO CAMPO: Distância da ponta do cano
     public GameObject MuzzleFlash_Prefab;
 
     [Header("Power Settings")]
@@ -69,32 +70,43 @@ public class ShootingSystem : MonoBehaviour
 
     void Shoot()
     {
-        if (projectilePrefab == null || firePoint == null)
+        if (projectilePrefab == null || playerScript.cannon == null) // Checa o canhão em vez do firePoint
         {
             Debug.LogError("❌ Faltam componentes para atirar!");
             StopCharging();
             return;
         }
 
-        // Criar projétil
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        // 1. Pega a direção correta (que já está funcionando)
+        Vector2 shootDirection = playerScript.GetAimDirection(); 
 
-        // Aplicar física
+        // 🎯 CORREÇÃO DEFINITIVA DA POSIÇÃO DE SPAWN:
+        // Usa a posição do PIVÔ do canhão (que é fixa) e move ao longo do vetor de direção corrigido.
+        Vector3 spawnPosition = playerScript.cannon.position + (Vector3)shootDirection * muzzleOffset;
+        
+        // 2. Instancia o projétil na posição corrigida
+        GameObject projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+
+        // Garante que a escala seja positiva e no tamanho correto do prefab
+        Vector3 originalScale = projectilePrefab.transform.localScale;
+        projectile.transform.localScale = new Vector3(Mathf.Abs(originalScale.x), Mathf.Abs(originalScale.y), Mathf.Abs(originalScale.z));
+
+        // 3. Aplica força
         Rigidbody2D projRig = projectile.GetComponent<Rigidbody2D>();
         if (projRig != null)
         {
-            Vector2 shootDirection = firePoint.right;
-
-            if (playerScript != null && !playerScript.facingRight)
-                shootDirection *= -1f;
-
             projRig.AddForce(shootDirection * currentPower, ForceMode2D.Impulse);
+
+            // Rotaciona a bala visualmente para a direção do tiro
+            float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+            projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
         // Efeito de fogo
-        if (MuzzleFlash_Prefab != null && firePoint != null)
+        if (MuzzleFlash_Prefab != null)
         {
-            GameObject flash = Instantiate(MuzzleFlash_Prefab, firePoint.position, firePoint.rotation);
+            // Instancia o flash na mesma posição e rotação corrigidas
+            GameObject flash = Instantiate(MuzzleFlash_Prefab, spawnPosition, Quaternion.Euler(0, 0, projectile.transform.eulerAngles.z));
             Destroy(flash, 0.3f);
         }
 

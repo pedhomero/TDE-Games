@@ -80,16 +80,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         if (cannon != null)
         {
-            float finalAngle = facingRight ? aimAngle : -aimAngle;
+            // Ângulo local para o canhão (inverte o Z se estiver virado para esquerda)
+            float finalAngle = facingRight ? aimAngle : -aimAngle; 
             cannon.localRotation = Quaternion.Euler(0, 0, finalAngle);
         }
 
         if (aimPoint != null && cannon != null)
         {
-            Vector3 dir = facingRight
-                ? Quaternion.Euler(0, 0, aimAngle) * Vector3.right
-                : Quaternion.Euler(0, 0, -aimAngle) * Vector3.left;
-
+            // 1. Usa o vetor de direção calculado pela função que agora é pública.
+            Vector3 dir = GetAimDirection();
+            
+            // 2. Aplica à mira visual.
             aimPoint.position = cannon.position + dir.normalized * 2f;
         }
     }
@@ -113,5 +114,21 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Vector3 s = transform.localScale;
         s.x = Mathf.Abs(s.x) * (facingRight ? 1f : -1f);
         transform.localScale = s;
+    }
+
+    // --- FUNÇÃO DE AJUDA PARA O SHOOTINGSYSTEM ---
+    // ✅ RETORNA O VETOR DE DIREÇÃO CORRIGIDO (O mesmo usado para a mira visual)
+    public Vector3 GetAimDirection()
+    {
+        // 1. Cria um vetor de direção baseado apenas no ângulo.
+        Vector3 localDir = Quaternion.Euler(0, 0, aimAngle) * Vector3.right;
+        
+        // 2. Se o player estiver virado para a esquerda, inverte o X do vetor para espelhar o arco.
+        if (!facingRight)
+        {
+            localDir.x *= -1f;
+        }
+        
+        return localDir.normalized;
     }
 }
