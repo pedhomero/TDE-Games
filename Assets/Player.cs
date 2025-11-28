@@ -16,11 +16,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float minAngle = -45f;
     public float maxAngle = 45f;
     public float aimSpeed = 50f;
+    
+    [Header("🔍 Ground Check")]
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
 
     public bool facingRight = true;
     private float direction;
     private float aimAngle = 0f;
     private Animator anim;
+    private bool isGrounded = false; // NOVO
 
     void Start()
     {
@@ -29,9 +35,31 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        // Detecta orientação inicial com base na escala
+        // Detecta orientação inicial
         facingRight = transform.localScale.x >= 0f;
         FixScale();
+        
+        // Criar GroundCheck se não existir
+        if (groundCheck == null)
+        {
+            GameObject gc = new GameObject("GroundCheck");
+            gc.transform.SetParent(transform);
+            gc.transform.localPosition = new Vector3(0, -1f, 0);
+            groundCheck = gc.transform;
+        }
+
+         // DEBUG DE LAYERS
+    Debug.Log("Ground Layer Mask value: " + groundLayer.value);
+    Debug.Log("Ground Layer Mask (binary): " + System.Convert.ToString(groundLayer.value, 2));
+    
+    // Verificar se Ground existe
+    int groundLayerIndex = LayerMask.NameToLayer("Ground");
+    Debug.Log("Ground layer index: " + groundLayerIndex);
+    
+    if (groundLayerIndex == -1)
+    {
+        Debug.LogError("Layer 'Ground' NAO EXISTE! Crie ela em Layers -> Edit Layers");
+    }
     }
 
     void Update()
@@ -42,10 +70,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 anim.SetBool("isWalking", false);
             return;
         }
-
+        
+        CheckGrounded(); // NOVO - verificar se está no chão
         HandleMovement();
         HandleAiming();
         HandleFlip();
+    }
+    
+    // NOVA FUNÇÃO - Verificar se está no chão
+    void CheckGrounded()
+    {
+        if (groundCheck != null)
+        {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        }
     }
 
     void HandleMovement()
@@ -62,8 +100,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
             rig.linearVelocity = new Vector2(0, rig.linearVelocity.y);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        // MODIFICADO - Só pula se estiver no chão
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
             rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            Debug.Log("Player " + playerNumber + " pulou!");
+        }
 
         if (anim != null)
             anim.SetBool("isWalking", Mathf.Abs(direction) > 0.1f);
@@ -80,17 +122,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         if (cannon != null)
         {
-            // Ângulo local para o canhão (inverte o Z se estiver virado para esquerda)
             float finalAngle = facingRight ? aimAngle : -aimAngle; 
             cannon.localRotation = Quaternion.Euler(0, 0, finalAngle);
         }
 
         if (aimPoint != null && cannon != null)
         {
-            // 1. Usa o vetor de direção calculado pela função que agora é pública.
             Vector3 dir = GetAimDirection();
-            
-            // 2. Aplica à mira visual.
             aimPoint.position = cannon.position + dir.normalized * 2f;
         }
     }
@@ -116,19 +154,25 @@ public class NewMonoBehaviourScript : MonoBehaviour
         transform.localScale = s;
     }
 
-    // --- FUNÇÃO DE AJUDA PARA O SHOOTINGSYSTEM ---
-    // ✅ RETORNA O VETOR DE DIREÇÃO CORRIGIDO (O mesmo usado para a mira visual)
     public Vector3 GetAimDirection()
     {
-        // 1. Cria um vetor de direção baseado apenas no ângulo.
         Vector3 localDir = Quaternion.Euler(0, 0, aimAngle) * Vector3.right;
         
-        // 2. Se o player estiver virado para a esquerda, inverte o X do vetor para espelhar o arco.
         if (!facingRight)
         {
             localDir.x *= -1f;
         }
         
         return localDir.normalized;
+    }
+    
+    // NOVA FUNÇÃO - Visualizar área de detecção no editor
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = isGrounded ? Color.green : Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
     }
 }

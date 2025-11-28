@@ -14,8 +14,8 @@ public class ShootingSystem : MonoBehaviour
 
     [Header("Power Settings")]
     public float minPower = 1f;
-    public float maxPower = 5f;
-    public float powerChargeSpeed = 2f;
+    public float maxPower = 100f;
+    public float powerChargeSpeed = 0.5f;
 
     private float currentPower = 0f;
     private bool isCharging = false;
@@ -100,6 +100,16 @@ public class ShootingSystem : MonoBehaviour
             // Rotaciona a bala visualmente para a direção do tiro
             float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+                 // DEBUG COMPLETO
+        Debug.Log("========== DEBUG TIRO ==========");
+        Debug.Log("Current Power: " + currentPower);
+        Debug.Log("Min Power: " + minPower);
+        Debug.Log("Max Power: " + maxPower);
+        Debug.Log("Shoot Direction: " + shootDirection);
+        Debug.Log("Massa ANTES: " + projRig.mass);
+        Debug.Log("Gravity ANTES: " + projRig.gravityScale);
+        Debug.Log("Drag ANTES: " + projRig.linearDamping);
         }
 
         // Efeito de fogo

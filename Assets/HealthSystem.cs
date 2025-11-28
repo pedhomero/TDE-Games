@@ -143,6 +143,9 @@ public class HealthSystem : MonoBehaviour
         return currentHealth / maxHealth;
     }
 
+    [Header("Fall Detection")]
+    public bool useFallDetection = true;
+    public float deathHeight = -20f;
     void Update()
 {
     // TESTE: Verificando se o código esta funcionando,
@@ -151,6 +154,12 @@ public class HealthSystem : MonoBehaviour
     {
         Debug.Log("🧪 TESTE MANUAL: Aplicando 10 de dano em " + gameObject.name);
         TakeDamage(10);
+    }
+
+    if (useFallDetection && transform.position.y < deathHeight)
+    {
+        Debug.Log(gameObject.name + " caiu do mapa!");
+        TakeDamage(maxHealth); // Mata instantaneamente
     }
 }
 }
